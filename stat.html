@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <title>Meteorite Stats</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body style="background-color: rgb(41, 59, 77);">
+  <h2 style="color: #ffffff;">Meteorite Stats from the year 2000 - 2010</h2>
+ 
+ <button class="accordion">Read Me</button>
+<div class="panel">
+   <h3>Dataset from: <a href="https://www.kaggle.com/nasa/meteorite-landings"><img src="MetSoc.jpg" height="50" width="100"/></a></h3>
+   <p>The Meteoritical Society collects data on meteorites that have fallen to Earth from outer space. This dataset includes the location, mass, composition, and fall year for over 8,000 (from 2000 - 2010) meteorites that have struck our planet.</p>
+   <strong>Note: </strong> <p><ul> <li>The incomplete information (geographic coordinates, year, meteorite mass) was erased from the dataset.</li> 
+  <li><strong>Fell:</strong> The meteorite's fall was observed.</li><li><strong>Found:</strong> The meterorite's fall was not observed.</li></ul></p>
+</div>
+
+
+<h4><button class="button1" onclick="window.location.href='index.html'">Click here for Meteorite Sightings</button></h4>
+
+  
+  <strong style="color: #ffffff;">Total Meteorites from 2000 - 2010: </strong>
+<span style="color: #ffffff;">
+  <p><i style="color: rgb(255, 218, 41);">Total</i> count:  <span id="total" style="color: rgb(255, 218, 41);"></span></p>
+  <p><i style="color: rgb(255, 218, 41);">Fell</i> count: <span id="fell" style="color: rgb(255, 218, 41);"></span></p>
+  <p><i style="color: rgb(255, 218, 41);">Found</i> count: <span id="found" style="color: rgb(255, 218, 41);"></span></p>
+</span>  
+  <div class="stacked-bar-graph">
+    <span id="bar-1"><span id="bar-1Info" class="bar"></span></span>
+    <span id="bar-2"><span id="bar-2Info" class="bar"></span></span>
+  </div>
+
+
+
+  <strong style="color: #ffffff;">Meteorite weight distribution (hover over the bubble chart to obtain information): </strong><br/>
+  <p style="float:left; margin-right: 2%; color: #ffffff;">Fell: <span class="dot1"></span></p>
+  <p style="float:left; color: #ffffff;">Found: <span class="dot2"></span></p>
+  <div class="hidden" style="margin-left: 1%" id="tooltip">
+      <p><b>Name of meteorite: </b><span id="name"></span></p>
+      <p><b>Mass in grams: </b><span id="mass"></span></p>
+      <p><b>Year: </b><span id="year"></span></p>
+  </div>
+
+  
+  <script src="interactive2.js"></script>
+  <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+</body>
+</html>
